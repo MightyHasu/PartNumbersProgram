@@ -13,7 +13,7 @@ public class ConsoleReader implements Reader{
 
     private BufferedReader reader;
 
-    private ConsoleReader() {
+    public ConsoleReader() {
         this.reader = new BufferedReader(new InputStreamReader(System.in));;
     }
 

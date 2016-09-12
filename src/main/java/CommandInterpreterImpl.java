@@ -3,15 +3,20 @@
  */
 public class CommandInterpreterImpl {
 
+    private String[] data;
+
     public CommandInterpreterImpl(){
     }
 
-    public String[] interpretCommand(String input) {
+    public void interpretCommand(String input) {
         try {
             String[] data = input.split("\\/");
-            return data;
+            this.data = data;
+
         } catch (IllegalArgumentException iae) {
             throw new IllegalArgumentException("Invalid input!");
         }
     }
+
+
 }

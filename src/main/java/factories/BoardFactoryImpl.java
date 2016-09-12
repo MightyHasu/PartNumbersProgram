@@ -24,7 +24,7 @@ public class BoardFactoryImpl {
         String depth = this.data[2];
         Board board = null;
 
-        if (this.data[3]!=null&&Integer.valueOf(this.data[3])>0){
+        if (this.data.length==4&&Integer.valueOf(this.data[3])>0){
             for (int i = 0; i < Integer.valueOf(this.data[3]); i++) {
                 board = new BoardImpl(height, widht, depth);
                 this.boardRepository.addBoard(board);

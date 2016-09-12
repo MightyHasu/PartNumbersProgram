@@ -17,6 +17,18 @@ public class BoardImpl implements Board {
         this.setDepth(depth);
     }
 
+    public String getHeight() {
+        return this.height;
+    }
+
+    public String getWidth() {
+        return this.width;
+    }
+
+    public String getDepth() {
+        return this.depth;
+    }
+
     private void setHeight(String height) {
         if (Integer.valueOf(height) <= 0 ||
                 (Integer.valueOf(height) % 25 != 0)) {
@@ -47,5 +59,21 @@ public class BoardImpl implements Board {
     @Override
     public String toString() {
         return String.format("Height(%s) / Width(%s) / Depth(%s)", this.width, this.height, this.depth);
+    }
+
+    public int compareTo(Board board) {
+        if (this.width.equals(board.getWidth()) &&
+                this.height.equals(board.getHeight()) &&
+                this.depth.equals(board.getDepth())) {
+            return 0;
+        }
+        return 1;
+    }
+
+    public int compareTo(Object o) {
+        if (this.toString().equals(o.toString())) {
+            return 0;
+        }
+        return 1;
     }
 }
