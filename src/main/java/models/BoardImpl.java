@@ -5,7 +5,7 @@ import interfaces.Board;
 /**
  * Created by PC2 on 9/3/2016.
  */
-public class BoardImpl implements Board {
+public class BoardImpl implements Board, Comparable<Board> {
 
     private String height;
     private String width;
@@ -61,19 +61,8 @@ public class BoardImpl implements Board {
         return String.format("Height(%s) / Width(%s) / Depth(%s)", this.width, this.height, this.depth);
     }
 
-    public int compareTo(Board board) {
-        if (this.width.equals(board.getWidth()) &&
-                this.height.equals(board.getHeight()) &&
-                this.depth.equals(board.getDepth())) {
-            return 0;
-        }
-        return 1;
-    }
 
-    public int compareTo(Object o) {
-        if (this.toString().equals(o.toString())) {
-            return 0;
-        }
-        return 1;
+    public int compareTo(Board board) {
+        return this.toString().compareTo(board.toString());
     }
 }

@@ -16,18 +16,10 @@ public class BoardRepositoryImpl {
     }
 
     public void addBoard(Board board) {
-        if (this.boardsQuantity.size() == 0) {
+        if (!this.boardsQuantity.containsKey(board)) {
             boardsQuantity.put(board, 1);
         } else {
-            for (Board board1 : boardsQuantity.keySet()) {
-                if (board.toString().equals(board1.toString())) {
-                    boardsQuantity.put(board1, boardsQuantity.get(board1) + 1);
-                } else {
-
-                    boardsQuantity.put(board, 1);
-                    continue;
-                }
-            }
+                    boardsQuantity.put(board, boardsQuantity.get(board) + 1);
         }
     }
 
